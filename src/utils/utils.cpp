@@ -4,4 +4,6 @@ namespace alxutils {
 
 std::mutex g_printlnLock;
 
+AbstractBase::~AbstractBase() {}
+
 }

@@ -29,22 +29,6 @@ public:
 extern std::unique_ptr<ILogger> g_logger;
 std::unique_ptr<ILogger>& getLogger();
 
-template<typename... Ts>
-inline void log(const ELogEntryType & entryType, const Ts &... args) {
-	getLogger()->logEntry(entryType, to_string(args...));
-}
-
-template<typename... Ts>
-inline void log(const Ts &... args) {
-	log(ELogEntryType::DEBUG, args...);
-}
-
-#ifdef ENABLE_LOGGING
-#define dbg(...) log("[", __PRETTY_FUNCTION__, "] ", __VA_ARGS__)
-#else
-#define dbg(...)
-#endif
-
 }
 
 

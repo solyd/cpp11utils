@@ -10,10 +10,14 @@
 #include <list>
 #include <condition_variable>
 #include <unordered_set>
+#include <type_traits>
 
 #include "src/utils/utils.h"
 #include "src/utils/logger/ILogger.h"
 #include "src/utils/DeathHandler.h"
+
+#include "src/tests/tests.h"
+#include "src/tests/FooClass.h"
 
 //#include "src/utils/collections/BlockingQueue.h"
 //#include "src/utils/collections/HashSet.h"
@@ -22,23 +26,16 @@
 //#include "src/utils/Semaphore.h"
 
 using namespace alxutils;
+using namespace tests;
 
-struct A {
-
-	A(const int & x, const int &  y) {
-		_x = x;
-		_y = y;
-	}
-
-	int _y;
-	int _x;
-
-};
 
 int main() {
 	Debug::DeathHandler dh;
+	dh.set_generate_core_dump(true);
 
+	dbgtrace;
 
+	test_ThreadPool();
 
 	return 0;
 }

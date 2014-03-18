@@ -49,9 +49,6 @@ int Semaphore::dec_val() {
 	return m_val;
 }
 
-EventFlag::EventFlag() :
-	Semaphore(0, Range<int>(0, 1))
-{
-}
+EventFlag::EventFlag() : Semaphore(0, Range<int>(0, 1)) {}
 
 }
